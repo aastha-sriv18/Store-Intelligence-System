@@ -1,0 +1,758 @@
+[
+    {
+        "visitor_id": 1,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1
+    },
+    {
+        "visitor_id": 2,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 1
+    },
+    {
+        "visitor_id": 3,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1
+    },
+    {
+        "visitor_id": 4,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1
+    },
+    {
+        "visitor_id": 5,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 1
+    },
+    {
+        "visitor_id": 5,
+        "event_type": "ZONE_EXIT",
+        "zone": "ENTRANCE",
+        "frame_number": 8
+    },
+    {
+        "visitor_id": 5,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 8
+    },
+    {
+        "visitor_id": 11,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 24
+    },
+    {
+        "visitor_id": 19,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 31
+    },
+    {
+        "visitor_id": 2,
+        "event_type": "STORE_ENTRY",
+        "zone": "SNACKS",
+        "frame_number": 35
+    },
+    {
+        "visitor_id": 27,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 41
+    },
+    {
+        "visitor_id": 30,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 45
+    },
+    {
+        "visitor_id": 31,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 75
+    },
+    {
+        "visitor_id": 37,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 86
+    },
+    {
+        "visitor_id": 30,
+        "event_type": "ZONE_EXIT",
+        "zone": "REFRIGERATORS",
+        "frame_number": 116
+    },
+    {
+        "visitor_id": 30,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 116
+    },
+    {
+        "visitor_id": 43,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 135
+    },
+    {
+        "visitor_id": 30,
+        "event_type": "ZONE_EXIT",
+        "zone": "CHECKOUT",
+        "frame_number": 146
+    },
+    {
+        "visitor_id": 30,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 146
+    },
+    {
+        "visitor_id": 49,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 156
+    },
+    {
+        "visitor_id": 2,
+        "event_type": "ZONE_EXIT",
+        "zone": "SNACKS",
+        "frame_number": 170
+    },
+    {
+        "visitor_id": 2,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 170
+    },
+    {
+        "visitor_id": 57,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 170
+    },
+    {
+        "visitor_id": 30,
+        "event_type": "ZONE_EXIT",
+        "zone": "REFRIGERATORS",
+        "frame_number": 178
+    },
+    {
+        "visitor_id": 30,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 178
+    },
+    {
+        "visitor_id": 59,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 182
+    },
+    {
+        "visitor_id": 63,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 185
+    },
+    {
+        "visitor_id": 2,
+        "event_type": "ZONE_EXIT",
+        "zone": "ENTRANCE",
+        "frame_number": 188
+    },
+    {
+        "visitor_id": 2,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 188
+    },
+    {
+        "visitor_id": 66,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 195
+    },
+    {
+        "visitor_id": 68,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 199
+    },
+    {
+        "visitor_id": 68,
+        "event_type": "ZONE_EXIT",
+        "zone": "ENTRANCE",
+        "frame_number": 202
+    },
+    {
+        "visitor_id": 68,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 202
+    },
+    {
+        "visitor_id": 71,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 203
+    },
+    {
+        "visitor_id": 68,
+        "event_type": "ZONE_EXIT",
+        "zone": "CHECKOUT",
+        "frame_number": 204
+    },
+    {
+        "visitor_id": 68,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 204
+    },
+    {
+        "visitor_id": 68,
+        "event_type": "ZONE_EXIT",
+        "zone": "ENTRANCE",
+        "frame_number": 221
+    },
+    {
+        "visitor_id": 68,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 221
+    },
+    {
+        "visitor_id": 71,
+        "event_type": "ZONE_EXIT",
+        "zone": "ENTRANCE",
+        "frame_number": 233
+    },
+    {
+        "visitor_id": 71,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 233
+    },
+    {
+        "visitor_id": 4,
+        "event_type": "STORE_ENTRY",
+        "zone": "CHECKOUT",
+        "frame_number": 235
+    },
+    {
+        "visitor_id": 71,
+        "event_type": "ZONE_EXIT",
+        "zone": "CHECKOUT",
+        "frame_number": 235
+    },
+    {
+        "visitor_id": 71,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 235
+    },
+    {
+        "visitor_id": 121,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 250
+    },
+    {
+        "visitor_id": 123,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 265
+    },
+    {
+        "visitor_id": 126,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 269
+    },
+    {
+        "visitor_id": 127,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 283
+    },
+    {
+        "visitor_id": 127,
+        "event_type": "ZONE_EXIT",
+        "zone": "CHECKOUT",
+        "frame_number": 298
+    },
+    {
+        "visitor_id": 127,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 298
+    },
+    {
+        "visitor_id": 4,
+        "event_type": "ZONE_EXIT",
+        "zone": "CHECKOUT",
+        "frame_number": 301
+    },
+    {
+        "visitor_id": 4,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 301
+    },
+    {
+        "visitor_id": 139,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 304
+    },
+    {
+        "visitor_id": 149,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 317
+    },
+    {
+        "visitor_id": 158,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 348
+    },
+    {
+        "visitor_id": 184,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 416
+    },
+    {
+        "visitor_id": 196,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 421
+    },
+    {
+        "visitor_id": 203,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 431
+    },
+    {
+        "visitor_id": 204,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 433
+    },
+    {
+        "visitor_id": 149,
+        "event_type": "ZONE_EXIT",
+        "zone": "CHECKOUT",
+        "frame_number": 439
+    },
+    {
+        "visitor_id": 149,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 439
+    },
+    {
+        "visitor_id": 211,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 440
+    },
+    {
+        "visitor_id": 221,
+        "event_type": "ZONE_ENTER",
+        "zone": "BEVERAGES",
+        "frame_number": 487
+    },
+    {
+        "visitor_id": 222,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 503
+    },
+    {
+        "visitor_id": 228,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 515
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 521
+    },
+    {
+        "visitor_id": 2,
+        "event_type": "ZONE_EXIT",
+        "zone": "CHECKOUT",
+        "frame_number": 530
+    },
+    {
+        "visitor_id": 2,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 530
+    },
+    {
+        "visitor_id": 235,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 532
+    },
+    {
+        "visitor_id": 240,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 549
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_EXIT",
+        "zone": "ENTRANCE",
+        "frame_number": 551
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 551
+    },
+    {
+        "visitor_id": 241,
+        "event_type": "ZONE_ENTER",
+        "zone": "UNKNOWN",
+        "frame_number": 560
+    },
+    {
+        "visitor_id": 242,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 560
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_EXIT",
+        "zone": "SNACKS",
+        "frame_number": 579
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_ENTER",
+        "zone": "BEVERAGES",
+        "frame_number": 579
+    },
+    {
+        "visitor_id": 246,
+        "event_type": "ZONE_ENTER",
+        "zone": "UNKNOWN",
+        "frame_number": 589
+    },
+    {
+        "visitor_id": 240,
+        "event_type": "ZONE_EXIT",
+        "zone": "ENTRANCE",
+        "frame_number": 613
+    },
+    {
+        "visitor_id": 240,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 613
+    },
+    {
+        "visitor_id": 250,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 627
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_EXIT",
+        "zone": "BEVERAGES",
+        "frame_number": 692
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 692
+    },
+    {
+        "visitor_id": 252,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 698
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_EXIT",
+        "zone": "SNACKS",
+        "frame_number": 728
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 728
+    },
+    {
+        "visitor_id": 257,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 739
+    },
+    {
+        "visitor_id": 261,
+        "event_type": "ZONE_ENTER",
+        "zone": "BEVERAGES",
+        "frame_number": 755
+    },
+    {
+        "visitor_id": 240,
+        "event_type": "ZONE_EXIT",
+        "zone": "SNACKS",
+        "frame_number": 761
+    },
+    {
+        "visitor_id": 240,
+        "event_type": "ZONE_ENTER",
+        "zone": "BEVERAGES",
+        "frame_number": 761
+    },
+    {
+        "visitor_id": 262,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 761
+    },
+    {
+        "visitor_id": 240,
+        "event_type": "ZONE_EXIT",
+        "zone": "BEVERAGES",
+        "frame_number": 774
+    },
+    {
+        "visitor_id": 240,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 774
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_EXIT",
+        "zone": "ENTRANCE",
+        "frame_number": 776
+    },
+    {
+        "visitor_id": 229,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 776
+    },
+    {
+        "visitor_id": 274,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 815
+    },
+    {
+        "visitor_id": 286,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 837
+    },
+    {
+        "visitor_id": 288,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 838
+    },
+    {
+        "visitor_id": 289,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 861
+    },
+    {
+        "visitor_id": 296,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 911
+    },
+    {
+        "visitor_id": 321,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 938
+    },
+    {
+        "visitor_id": 348,
+        "event_type": "ZONE_ENTER",
+        "zone": "BEVERAGES",
+        "frame_number": 962
+    },
+    {
+        "visitor_id": 355,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 968
+    },
+    {
+        "visitor_id": 274,
+        "event_type": "STORE_ENTRY",
+        "zone": "CHECKOUT",
+        "frame_number": 975
+    },
+    {
+        "visitor_id": 369,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1006
+    },
+    {
+        "visitor_id": 370,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1007
+    },
+    {
+        "visitor_id": 374,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1040
+    },
+    {
+        "visitor_id": 375,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1067
+    },
+    {
+        "visitor_id": 385,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1097
+    },
+    {
+        "visitor_id": 420,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1169
+    },
+    {
+        "visitor_id": 478,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1202
+    },
+    {
+        "visitor_id": 479,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1202
+    },
+    {
+        "visitor_id": 420,
+        "event_type": "ZONE_EXIT",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1272
+    },
+    {
+        "visitor_id": 420,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1272
+    },
+    {
+        "visitor_id": 507,
+        "event_type": "ZONE_ENTER",
+        "zone": "SNACKS",
+        "frame_number": 1286
+    },
+    {
+        "visitor_id": 516,
+        "event_type": "ZONE_ENTER",
+        "zone": "ENTRANCE",
+        "frame_number": 1323
+    },
+    {
+        "visitor_id": 517,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1326
+    },
+    {
+        "visitor_id": 518,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1342
+    },
+    {
+        "visitor_id": 519,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1344
+    },
+    {
+        "visitor_id": 520,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1349
+    },
+    {
+        "visitor_id": 528,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1383
+    },
+    {
+        "visitor_id": 536,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1388
+    },
+    {
+        "visitor_id": 570,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1415
+    },
+    {
+        "visitor_id": 573,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1448
+    },
+    {
+        "visitor_id": 612,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1624
+    },
+    {
+        "visitor_id": 613,
+        "event_type": "ZONE_ENTER",
+        "zone": "REFRIGERATORS",
+        "frame_number": 1657
+    },
+    {
+        "visitor_id": 614,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1664
+    },
+    {
+        "visitor_id": 615,
+        "event_type": "ZONE_ENTER",
+        "zone": "CHECKOUT",
+        "frame_number": 1731
+    }
+]
