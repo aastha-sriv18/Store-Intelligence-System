@@ -49,11 +49,13 @@ Example:
 
 The analytics engine processes generated events and produces store-level insights.
 
-Metrics:
-
-* Total Entries
-* Unique Visitors
-* Zone Distribution
+- Total Entries
+- Unique Visitors
+- Zone Distribution
+- Customer Journey Analysis
+- Dwell Time Analytics
+- Store Heatmap Generation
+- Anomaly Detection
 
 Example:
 
@@ -78,6 +80,65 @@ outputs/analytics.json
 ```
 
 ---
+
+---
+
+# Anomaly Detection
+
+The system automatically identifies unusual customer behavior patterns from generated events.
+
+Supported anomalies:
+
+## Long Dwell Time
+
+Detects customers spending an unusually long time inside a zone.
+
+Example:
+
+```json
+{
+  "visitor_id": 42,
+  "anomaly": "LONG_DWELL_TIME",
+  "zone": "REFRIGERATORS",
+  "dwell_seconds": 15.4
+}
+```
+
+## Excessive Zone Switching
+
+Detects customers repeatedly moving between multiple zones.
+
+Example:
+
+```json
+{
+  "visitor_id": 18,
+  "anomaly": "EXCESSIVE_ZONE_SWITCHING",
+  "zones_visited": 7
+}
+```
+
+## Direct Checkout
+
+Detects visitors who move directly from the entrance to checkout.
+
+Example:
+
+```json
+{
+  "visitor_id": 31,
+  "anomaly": "DIRECT_CHECKOUT"
+}
+```
+
+Detected anomalies are stored in:
+
+```text
+outputs/anomalies.json
+```
+
+---
+
 
 # Dwell Time Analytics
 
@@ -169,6 +230,7 @@ Dashboard Features:
 * Zone Distribution
 * Average Dwell Time
 * Customer Journey Samples
+* Anomaly Detection Results
 * Heatmap Visualization
 
 Launch:
@@ -250,6 +312,8 @@ events.json
     │
     ├──────────► Heatmap Generator
     │
+    ├──────────► Anomaly Detection
+    │
     ├──────────► Streamlit Dashboard
     │
     └──────────► FastAPI Service
@@ -271,6 +335,7 @@ store-intelligence/
 │
 ├── outputs/
 │   ├── analytics.json
+|   ├── anomalies.json
 │   ├── dwell_times.json
 │   ├── dwell_analytics.json
 │   ├── journeys.json
@@ -280,6 +345,7 @@ store-intelligence/
 │
 ├── pipeline/
 │   ├── analytics.py
+|   ├── anomaly_detection.py
 │   ├── dwell_time.py
 │   ├── dwell_analytics.py
 │   ├── journeys.py
@@ -420,6 +486,12 @@ Future versions can support:
 
 ---
 
+## Anomaly detection currently uses rule-based thresholds.
+
+Future versions can incorporate machine learning models to learn normal customer behavior patterns and automatically detect unusual activity.
+
+---
+
 # Future Improvements
 
 ## Real-Time Analytics
@@ -437,17 +509,6 @@ Detect:
 * Long checkout queues
 * Waiting times
 * Congested areas
-
----
-
-## Anomaly Detection
-
-Examples:
-
-* Crowd surges
-* Unusual dwell times
-* Empty store alerts
-* Suspicious movement patterns
 
 ---
 
