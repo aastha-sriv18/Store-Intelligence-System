@@ -1,33 +1,10 @@
-# Store zones
-
 ZONES = {
-
-    "ENTRANCE": (
-        0, 450,
-        350, 720
-    ),
-
-    "SNACKS": (
-        350, 250,
-        650, 720
-    ),
-
-    "BEVERAGES": (
-        650, 250,
-        950, 720
-    ),
-
-    "REFRIGERATORS": (
-        350, 0,
-        1280, 250
-    ),
-
-    "CHECKOUT": (
-        0, 0,
-        350, 450
-    )
+    "FRAGRANCE": (0, 150, 250, 500),
+    "NAIL_UNIT": (250, 150, 500, 500),
+    "MAKEUP_UNIT": (500, 150, 900, 500),
+    "BILLING_COUNTER": (900, 150, 1280, 500),
+    "ENTRANCE": (0, 500, 250, 720)
 }
-
 
 def get_zone(x, y):
 

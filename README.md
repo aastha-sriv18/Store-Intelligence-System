@@ -38,14 +38,14 @@ Example:
 {
   "visitor_id": 42,
   "event_type": "ZONE_ENTER",
-  "zone": "REFRIGERATORS",
+  "zone": "MAKEUP",
   "frame_number": 517
 }
 ```
 
 ---
 
-# Analytics
+## Analytics
 
 The analytics engine processes generated events and produces store-level insights.
 
@@ -64,11 +64,12 @@ Example:
   "total_entries": 3,
   "unique_visitors": 75,
   "zone_distribution": {
-    "REFRIGERATORS": 24,
-    "SNACKS": 16,
-    "CHECKOUT": 52,
     "ENTRANCE": 25,
-    "BEVERAGES": 7
+    "FRAGRANCE": 18,
+    "MAKEUP": 31,
+    "NAIL_UNIT": 12,
+    "BRAND_WALL": 21,
+    "CHECKOUT": 52
   }
 }
 ```
@@ -81,15 +82,91 @@ outputs/analytics.json
 
 ---
 
+## Dwell Time Analytics
+
+Calculates the time spent by visitors inside each zone.
+
+Example:
+
+```json
+{
+  "visitor_id": 30,
+  "zone": "SKINCARE",
+  "dwell_seconds": 4.37
+}
+```
+
+Generated Files:
+
+```text
+outputs/dwell_times.json
+outputs/dwell_analytics.json
+```
+
+Provides:
+
+* Average dwell time per zone
+* Visitor engagement analysis
+* High-interest zone identification
+
 ---
 
-# Anomaly Detection
+## Customer Journey Analytics
+
+Tracks visitor movement across store zones.
+
+Example:
+
+```json
+{
+  "30": [
+    "SKINCARE",
+    "CHECKOUT",
+    "HAIRCARE",
+    "CHECKOUT"
+  ]
+}
+```
+
+Generated File:
+
+```text
+outputs/journeys.json
+```
+
+Provides:
+
+* Customer flow analysis
+* Popular navigation paths
+* Zone transition patterns
+
+---
+
+## Heatmap Generation
+
+Generates a heatmap using tracked visitor positions.
+
+Output:
+
+```text
+outputs/heatmap.png
+```
+
+Provides:
+
+* High traffic areas
+* Customer concentration zones
+* Store layout insights
+
+---
+
+## Anomaly Detection
 
 The system automatically identifies unusual customer behavior patterns from generated events.
 
 Supported anomalies:
 
-## Long Dwell Time
+### Long Dwell Time
 
 Detects customers spending an unusually long time inside a zone.
 
@@ -99,12 +176,12 @@ Example:
 {
   "visitor_id": 42,
   "anomaly": "LONG_DWELL_TIME",
-  "zone": "REFRIGERATORS",
+  "zone": "MAKEUP",
   "dwell_seconds": 15.4
 }
 ```
 
-## Excessive Zone Switching
+### Excessive Zone Switching
 
 Detects customers repeatedly moving between multiple zones.
 
@@ -118,7 +195,7 @@ Example:
 }
 ```
 
-## Direct Checkout
+### Direct Checkout
 
 Detects visitors who move directly from the entrance to checkout.
 
@@ -139,86 +216,7 @@ outputs/anomalies.json
 
 ---
 
-
-# Dwell Time Analytics
-
-Calculates the time spent by visitors inside each zone.
-
-Example:
-
-```json
-{
-  "visitor_id": 30,
-  "zone": "REFRIGERATORS",
-  "dwell_seconds": 4.37
-}
-```
-
-Generated Files:
-
-```text
-outputs/dwell_times.json
-outputs/dwell_analytics.json
-```
-
-Provides:
-
-* Average dwell time per zone
-* Visitor engagement analysis
-* High-interest zone identification
-
----
-
-# Customer Journey Analytics
-
-Tracks visitor movement across store zones.
-
-Example:
-
-```json
-{
-  "30": [
-    "REFRIGERATORS",
-    "CHECKOUT",
-    "REFRIGERATORS",
-    "CHECKOUT"
-  ]
-}
-```
-
-Generated File:
-
-```text
-outputs/journeys.json
-```
-
-Provides:
-
-* Customer flow analysis
-* Popular navigation paths
-* Zone transition patterns
-
----
-
-# Heatmap Generation
-
-Generates a heatmap using tracked visitor positions.
-
-Output:
-
-```text
-outputs/heatmap.png
-```
-
-Provides:
-
-* High traffic areas
-* Customer concentration zones
-* Store layout insights
-
----
-
-# Interactive Dashboard
+## Interactive Dashboard
 
 Built using Streamlit.
 
@@ -232,12 +230,22 @@ Dashboard Features:
 * Customer Journey Samples
 * Anomaly Detection Results
 * Heatmap Visualization
+* Conversion Funnel
 
 Launch:
 
 ```bash
 streamlit run dashboard.py
 ```
+
+---
+
+## Deployment
+
+- Dockerized application
+- One-command deployment using Docker Compose
+- FastAPI service
+- Streamlit dashboard
 
 ---
 
@@ -338,6 +346,7 @@ store-intelligence/
 |   ├── anomalies.json
 │   ├── dwell_times.json
 │   ├── dwell_analytics.json
+│   ├── funnel.json
 │   ├── journeys.json
 │   ├── events.json
 │   ├── positions.json
@@ -348,16 +357,26 @@ store-intelligence/
 |   ├── anomaly_detection.py
 │   ├── dwell_time.py
 │   ├── dwell_analytics.py
+│   ├── funnel.py
 │   ├── journeys.py
 │   ├── heatmap.py
 │   ├── event_engine.py
 │   ├── main.py
+│   ├── sales_analytics.py
 │   └── zones.py
 │
 ├── dashboard.py
 │
+├── CHOICES.md
+|
+├── DESIGN.md
+|
 ├── README.md
 │
+├── Dockerfile
+|
+├── docker-compose.yml
+|
 └── requirements.txt
 ```
 
@@ -365,16 +384,19 @@ store-intelligence/
 
 # Technology Stack
 
-| Component        | Technology |
-| ---------------- | ---------- |
-| Language         | Python     |
-| Detection        | YOLOv8     |
-| Tracking         | ByteTrack  |
-| Video Processing | OpenCV     |
-| Analytics        | Python     |
-| Dashboard        | Streamlit  |
-| API Layer        | FastAPI    |
-| Server           | Uvicorn    |
+| Component        | Technology     |
+| ---------------- | -------------- |
+| Language         | Python         |
+| Detection        | YOLOv8         |
+| Tracking         | ByteTrack      |
+| Video Processing | OpenCV         |
+| Analytics        | Python         |
+| Dashboard        | Streamlit      |
+| API Layer        | FastAPI        |
+| Server           | Uvicorn        |
+| Containerization | Docker         |
+| Deployment       | Docker Compose |
+
 
 ---
 
@@ -462,27 +484,18 @@ to improve identity consistency.
 
 ---
 
-## Manual Zone Configuration
+## Store zones and entry boundaries are currently configured manually.
 
-Store zones are currently defined manually inside the code.
+Current implementation uses manually defined zones that approximate the provided Purplle store layout:
 
-Future improvements:
+- Entrance
+- Fragrance Island
+- Nail Unit
+- Makeup Island
+- Brand Wall Displays
+- Checkout Counter
 
-* Dynamic zone configuration
-* UI-based zone creation
-* Configuration-driven layouts
-
----
-
-## Single Camera Support
-
-Current implementation processes a single CCTV feed.
-
-Future versions can support:
-
-* Multi-camera analytics
-* Cross-camera tracking
-* Store-wide customer journeys
+The challenge includes multiple store layouts and camera viewpoints. Therefore, zone coordinates are configured per video and are intended to demonstrate the analytics pipeline rather than represent a single universal layout.
 
 ---
 
@@ -521,6 +534,29 @@ Replace file-based event storage with:
 * RabbitMQ
 
 for production-scale event processing.
+
+---
+
+## Zone Configuration
+
+Future versions can automatically map floor-plan layouts to camera views using homography and calibration techniques.
+
+Benefits:
+
+- Accurate zone analytics
+- Store-specific customer journeys
+- Reduced manual configuration
+- Better alignment with retail floor plans
+
+---
+
+# Docker Deployment
+
+Build and run the complete system:
+
+```bash
+docker compose up --build
+```
 
 ---
 
@@ -634,6 +670,20 @@ Creates:
 
 ```text
 outputs/anomalies.json
+```
+
+---
+
+## Run Funnel Conversion
+
+```bash
+python -m pipeline.funnel
+```
+
+Creates:
+
+```text
+outputs/funnel.json
 ```
 
 ---

@@ -1,47 +1,46 @@
-
-env/
-
-
-# Python cache
-
+# Python
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-
-
-# Environment variables
+# Virtual Environment
+venv/
 .env
+env/
 
-# Logs
-*.log
+# IDE
+.vscode/
+.idea/
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
-
-
-# Python
-venv/
-.venv/
-__pycache__/
-*.pyc
-
-# YOLO outputs
-runs/
-outputs/
-
-# Videos
-*.avi
-*.mp4
-*.mov
 
 # Weights
 *.pt
 *.pth
 
-# VS Code
-.vscode/
+# Python caches
+.pytest_cache/
+.mypy_cache/
 
-# Environment variables
-.env
+# Build
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Streamlit
+.streamlit/secrets.toml
+
+data/
+
+yolov8n.pt
+outputs/
+runs/

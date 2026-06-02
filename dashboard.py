@@ -178,6 +178,60 @@ except json.JSONDecodeError:
 
 
 # --------------------
+# Conversion Funnel
+# --------------------
+st.divider()
+st.subheader("Conversion Funnel")
+
+try:
+    with open("outputs/funnel.json") as f:
+        funnel = json.load(f)
+
+    # 1. Display KPIs in a balanced 4-column layout
+    f_col1, f_col2, f_col3, f_col4 = st.columns(4)
+
+    with f_col1:
+        st.metric("Store Visitors", funnel.get("store_visitors", 0))
+    with f_col2:
+        st.metric("Billing Visitors", funnel.get("billing_visitors", 0))
+    with f_col3:
+        st.metric("Transactions", funnel.get("transactions", 0))
+    with f_col4:
+        st.metric("Conversion Rate", f"{funnel.get('conversion_rate', 0)}%")
+
+    # 2. Generate a visual Plotly Funnel Chart
+    st.write("") # Small spacer
+    
+    # Structure the data for Plotly
+    funnel_data = dict(
+        number=[
+            funnel.get("store_visitors", 0), 
+            funnel.get("billing_visitors", 0), 
+            funnel.get("transactions", 0)
+        ],
+        stage=["Store Visitors", "Billing Zone Visitors", "Completed Transactions"]
+    )
+    df_funnel = pd.DataFrame(funnel_data)
+    
+    # Create the interactive chart
+    fig_funnel = px.funnel(
+        df_funnel, 
+        x='number', 
+        y='stage',
+        color_discrete_sequence=['#4C78A8'] # A professional, muted blue
+    )
+    
+    # Clean up the margins so it fits perfectly in the Streamlit container
+    fig_funnel.update_layout(margin=dict(l=20, r=20, t=20, b=20))
+    
+    st.plotly_chart(fig_funnel, use_container_width=True)
+
+except FileNotFoundError:
+    st.warning("Run funnel.py first to generate conversion analytics.", icon="⚠️")
+except json.JSONDecodeError:
+    st.error("Error reading funnel.json. Ensure the file contains valid JSON.", icon="❌")
+
+# --------------------
 # Footer
 # --------------------
 st.write("") # Adds a bit of vertical space
