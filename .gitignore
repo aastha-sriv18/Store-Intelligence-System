@@ -1,16 +1,14 @@
-# Virtual Environment
-venv/
+
 env/
-.venv/
+
 
 # Python cache
-__pycache__/
+
 *.pyc
 *.pyo
 *.pyd
 
-# VS Code settings
-.vscode/
+
 
 # Environment variables
 .env
@@ -21,19 +19,29 @@ __pycache__/
 # OS files
 .DS_Store
 Thumbs.db
+
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# YOLO outputs
+runs/
+outputs/
+
 # Videos
 *.avi
 *.mp4
 *.mov
-.pt
-.pth
-# YOLO outputs
-runs/
 
-# Python
-venv/
-__pycache__/
-*.pyc
+# Weights
+*.pt
+*.pth
 
 # VS Code
 .vscode/
+
+# Environment variables
+.env

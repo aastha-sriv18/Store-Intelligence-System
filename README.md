@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project is an end-to-end Store Intelligence System built for the Purplle Tech Challenge 2026.
+This project is an end-to-end **Store Intelligence System** built for the **Purplle Tech Challenge 2026**.
 
-The system processes raw CCTV footage and generates actionable retail insights using Computer Vision, Object Tracking, Event Processing, Analytics, and APIs.
+The system processes CCTV footage and transforms customer movements into structured retail intelligence using Computer Vision, Multi-Object Tracking, Event Processing, Analytics, and Interactive Dashboards.
 
-The goal is to transform video streams into structured business intelligence that can help store operators understand customer movement, zone popularity, occupancy, and behavioral patterns.
+The objective is to help retailers understand customer behavior, zone popularity, movement patterns, dwell time, and store utilization from CCTV footage.
 
 ---
 
@@ -14,67 +14,176 @@ The goal is to transform video streams into structured business intelligence tha
 
 ## Computer Vision Pipeline
 
-- Person Detection using YOLOv8
-- Multi-Object Tracking using ByteTrack
-- Customer Entry Detection
-- Zone-Based Tracking
-- Event Generation Pipeline
-
-## Event Intelligence
-
-The system converts raw detections into business events.
-
-Examples:
-
-- ENTRY
-- ZONE_ENTER
-- ZONE_EXIT
-
-Example Event:
-
-```json
-{
-  "visitor_id": 42,
-  "event_type": "ZONE_ENTER",
-  "zone": "MAKEUP",
-  "timestamp": "2026-05-30T10:20:15"
-}
-```
+* Person Detection using YOLOv8
+* Multi-Object Tracking using ByteTrack
+* Customer Entry Detection
+* Zone-Based Tracking
+* Event Generation Pipeline
 
 ---
 
-## Analytics
+## Event Intelligence
 
-Current analytics include:
+Raw detections are converted into business events.
 
-- Total Entries
-- Unique Visitors
-- Zone Distribution
+Supported Events:
+
+* STORE_ENTRY
+* ZONE_ENTER
+* ZONE_EXIT
 
 Example:
 
 ```json
 {
-  "total_entries": 16,
-  "unique_visitors": 221,
-  "zone_distribution": {
-    "BILLING": 53,
-    "FRAGRANCE": 62,
-    "MAKEUP": 94,
-    "SKINCARE": 95
-  }
+  "visitor_id": 42,
+  "event_type": "ZONE_ENTER",
+  "zone": "REFRIGERATORS",
+  "frame_number": 517
 }
 ```
 
 ---
 
-## REST API
+# Analytics
+
+The analytics engine processes generated events and produces store-level insights.
+
+Metrics:
+
+* Total Entries
+* Unique Visitors
+* Zone Distribution
+
+Example:
+
+```json
+{
+  "total_entries": 3,
+  "unique_visitors": 75,
+  "zone_distribution": {
+    "REFRIGERATORS": 24,
+    "SNACKS": 16,
+    "CHECKOUT": 52,
+    "ENTRANCE": 25,
+    "BEVERAGES": 7
+  }
+}
+```
+
+Generated File:
+
+```text
+outputs/analytics.json
+```
+
+---
+
+# Dwell Time Analytics
+
+Calculates the time spent by visitors inside each zone.
+
+Example:
+
+```json
+{
+  "visitor_id": 30,
+  "zone": "REFRIGERATORS",
+  "dwell_seconds": 4.37
+}
+```
+
+Generated Files:
+
+```text
+outputs/dwell_times.json
+outputs/dwell_analytics.json
+```
+
+Provides:
+
+* Average dwell time per zone
+* Visitor engagement analysis
+* High-interest zone identification
+
+---
+
+# Customer Journey Analytics
+
+Tracks visitor movement across store zones.
+
+Example:
+
+```json
+{
+  "30": [
+    "REFRIGERATORS",
+    "CHECKOUT",
+    "REFRIGERATORS",
+    "CHECKOUT"
+  ]
+}
+```
+
+Generated File:
+
+```text
+outputs/journeys.json
+```
+
+Provides:
+
+* Customer flow analysis
+* Popular navigation paths
+* Zone transition patterns
+
+---
+
+# Heatmap Generation
+
+Generates a heatmap using tracked visitor positions.
+
+Output:
+
+```text
+outputs/heatmap.png
+```
+
+Provides:
+
+* High traffic areas
+* Customer concentration zones
+* Store layout insights
+
+---
+
+# Interactive Dashboard
+
+Built using Streamlit.
+
+Dashboard Features:
+
+* Store Overview
+* Total Entries
+* Unique Visitors
+* Zone Distribution
+* Average Dwell Time
+* Customer Journey Samples
+* Heatmap Visualization
+
+Launch:
+
+```bash
+streamlit run dashboard.py
+```
+
+---
+
+# REST API
 
 Built using FastAPI.
 
-Available Endpoints:
-
-### Health Check
+## Health Check
 
 ```http
 GET /
@@ -88,17 +197,32 @@ Response:
 }
 ```
 
-### Events
+---
+
+## Events
 
 ```http
 GET /events
 ```
 
-Returns all generated store events.
+Returns all generated events.
+
+Example:
+
+```json
+[
+  {
+    "visitor_id": 42,
+    "event_type": "ZONE_ENTER",
+    "zone": "CHECKOUT",
+    "frame_number": 152
+  }
+]
+```
 
 ---
 
-# Project Architecture
+# System Architecture
 
 ```text
 CCTV Video
@@ -118,9 +242,17 @@ Event Engine
     ▼
 events.json
     │
-    ├────────────► Analytics Engine
+    ├──────────► Analytics Engine
     │
-    └────────────► FastAPI Service
+    ├──────────► Dwell Time Engine
+    │
+    ├──────────► Journey Analysis
+    │
+    ├──────────► Heatmap Generator
+    │
+    ├──────────► Streamlit Dashboard
+    │
+    └──────────► FastAPI Service
 ```
 
 ---
@@ -138,17 +270,25 @@ store-intelligence/
 │   └── test_video.mp4
 │
 ├── outputs/
-│   └── events.json
+│   ├── analytics.json
+│   ├── dwell_times.json
+│   ├── dwell_analytics.json
+│   ├── journeys.json
+│   ├── events.json
+│   ├── positions.json
+│   └── heatmap.png
 │
 ├── pipeline/
 │   ├── analytics.py
-│   ├── entry_counter.py
+│   ├── dwell_time.py
+│   ├── dwell_analytics.py
+│   ├── journeys.py
+│   ├── heatmap.py
 │   ├── event_engine.py
 │   ├── main.py
-│   ├── test_coordinates.py
-│   ├── test_yolo.py
-│   ├── track_people.py
 │   └── zones.py
+│
+├── dashboard.py
 │
 ├── README.md
 │
@@ -159,15 +299,16 @@ store-intelligence/
 
 # Technology Stack
 
-| Component | Technology |
-|------------|------------|
-| Language | Python |
-| Detection | YOLOv8 |
-| Tracking | ByteTrack |
-| Video Processing | OpenCV |
-| Analytics | Python |
-| API Layer | FastAPI |
-| Server | Uvicorn |
+| Component        | Technology |
+| ---------------- | ---------- |
+| Language         | Python     |
+| Detection        | YOLOv8     |
+| Tracking         | ByteTrack  |
+| Video Processing | OpenCV     |
+| Analytics        | Python     |
+| Dashboard        | Streamlit  |
+| API Layer        | FastAPI    |
+| Server           | Uvicorn    |
 
 ---
 
@@ -175,49 +316,49 @@ store-intelligence/
 
 ## Why YOLOv8?
 
-YOLOv8 provides:
+YOLOv8 was selected because it provides:
 
-- Fast inference
-- Easy deployment
-- Strong real-time performance
-- Good balance between speed and accuracy
+* Fast inference speed
+* Lightweight deployment
+* Real-time performance
+* Strong object detection accuracy
 
 Trade-off:
 
-- Lower accuracy than larger transformer-based detectors
-- Significantly faster for real-time systems
+* Slightly lower accuracy than larger transformer-based models
+* Better suited for real-time retail analytics
 
 ---
 
 ## Why ByteTrack?
 
-ByteTrack is a lightweight multi-object tracker that works well with YOLO detections.
+ByteTrack is a lightweight multi-object tracking algorithm that integrates easily with YOLO detections.
 
 Benefits:
 
-- Real-time capable
-- Easy integration
-- Good ID consistency
+* Real-time capable
+* Efficient tracking
+* Low computational overhead
 
 Trade-off:
 
-- Identity fragmentation can occur during heavy occlusion
-- Same person may occasionally receive multiple IDs
+* Identity fragmentation can occur during occlusions
+* Same visitor may occasionally receive multiple IDs
 
 ---
 
 ## Why Event-Based Architecture?
 
-Instead of storing raw detections only, the system converts detections into events.
+Instead of storing only detections, the system converts detections into business events.
 
 Benefits:
 
-- Easier analytics
-- API-friendly
-- Scalable architecture
-- Enables future streaming systems (Kafka, Redis Streams, etc.)
+* Easier analytics
+* API-friendly design
+* Scalable architecture
+* Supports future streaming systems
 
-Example:
+Pipeline:
 
 ```text
 Detection
@@ -233,50 +374,69 @@ Analytics
 
 # Current Limitations
 
-1. Visitor count is currently based on ByteTrack IDs. Due to occlusions and re-identification limitations, the same physical visitor may receive multiple track IDs. Production systems would use person re-identification (ReID) embeddings to merge fragmented tracks.
+## Visitor Re-Identification
 
-2. Zones are manually defined.
+Visitor counting currently relies on ByteTrack tracking IDs.
 
-Future versions can support dynamic store layouts through configuration files or UI-based zone creation.
+Because of:
 
-3. Event timestamps currently represent processing time rather than exact video timestamps.
+* Occlusions
+* Missed detections
+* Tracker resets
 
-Future improvements will synchronize events with video frame timestamps.
+the same customer may occasionally receive multiple IDs.
+
+Future versions can integrate:
+
+* DeepSORT
+* BoT-SORT
+* Person Re-Identification (ReID)
+
+to improve identity consistency.
+
+---
+
+## Manual Zone Configuration
+
+Store zones are currently defined manually inside the code.
+
+Future improvements:
+
+* Dynamic zone configuration
+* UI-based zone creation
+* Configuration-driven layouts
+
+---
+
+## Single Camera Support
+
+Current implementation processes a single CCTV feed.
+
+Future versions can support:
+
+* Multi-camera analytics
+* Cross-camera tracking
+* Store-wide customer journeys
 
 ---
 
 # Future Improvements
 
-## Dwell Time Analytics
+## Real-Time Analytics
 
-Calculate time spent inside each store zone.
-
-Example:
-
-```json
-{
-  "visitor_id": 42,
-  "zone": "SKINCARE",
-  "dwell_seconds": 73
-}
-```
+* Live occupancy monitoring
+* Live visitor counts
+* Streaming event dashboard
 
 ---
 
-## Occupancy Monitoring
+## Queue Monitoring
 
-Real-time store occupancy tracking.
+Detect:
 
----
-
-## Live Dashboard
-
-Streamlit dashboard with:
-
-- Occupancy metrics
-- Zone popularity
-- Visitor flow
-- Event feed
+* Long checkout queues
+* Waiting times
+* Congested areas
 
 ---
 
@@ -284,22 +444,22 @@ Streamlit dashboard with:
 
 Examples:
 
-- Crowd surge detection
-- Long queue detection
-- Unusual dwell time
-- Empty store during peak hours
+* Crowd surges
+* Unusual dwell times
+* Empty store alerts
+* Suspicious movement patterns
 
 ---
 
 ## Event Streaming
 
-Future versions can replace file-based event storage with:
+Replace file-based event storage with:
 
-- Apache Kafka
-- Redis Streams
-- RabbitMQ
+* Apache Kafka
+* Redis Streams
+* RabbitMQ
 
-for real-time event processing.
+for production-scale event processing.
 
 ---
 
@@ -327,10 +487,17 @@ pip install -r requirements.txt
 
 ---
 
-## Run Pipeline
+## Run Tracking Pipeline
 
 ```bash
-python pipeline/main.py
+python -m pipeline.main
+```
+
+Generates:
+
+```text
+events.json
+positions.json
 ```
 
 ---
@@ -338,7 +505,74 @@ python pipeline/main.py
 ## Run Analytics
 
 ```bash
-python pipeline/analytics.py
+python -m pipeline.analytics
+```
+
+Generates:
+
+```text
+analytics.json
+```
+
+---
+
+## Run Dwell Time Analysis
+
+```bash
+python -m pipeline.dwell_time
+```
+
+```bash
+python -m pipeline.dwell_analytics
+```
+
+Generates:
+
+```text
+dwell_times.json
+dwell_analytics.json
+```
+
+---
+
+## Run Journey Analysis
+
+```bash
+python -m pipeline.journeys
+```
+
+Generates:
+
+```text
+journeys.json
+```
+
+---
+
+## Generate Heatmap
+
+```bash
+python -m pipeline.heatmap
+```
+
+Generates:
+
+```text
+heatmap.png
+```
+
+---
+
+## Run Dashboard
+
+```bash
+streamlit run dashboard.py
+```
+
+Dashboard URL:
+
+```text
+http://localhost:8501
 ```
 
 ---
@@ -349,7 +583,7 @@ python pipeline/analytics.py
 uvicorn api.app:app --reload
 ```
 
-Open:
+API URL:
 
 ```text
 http://127.0.0.1:8000
@@ -362,4 +596,5 @@ http://127.0.0.1:8000
 Purplle Tech Challenge 2026
 
 Theme:
-AI-Powered Store Intelligence System using CCTV footage, event streaming, analytics, anomaly detection, and production-grade APIs.
+
+**AI-Powered Store Intelligence System using CCTV footage, computer vision, event processing, analytics, dashboards, and production-grade APIs.**
