@@ -624,6 +624,20 @@ heatmap.png
 
 ---
 
+## Run Anomaly Detection
+
+```bash
+python -m pipeline.anomaly_detection
+```
+
+Creates:
+
+```text
+outputs/anomalies.json
+```
+
+---
+
 ## Run Dashboard
 
 ```bash
