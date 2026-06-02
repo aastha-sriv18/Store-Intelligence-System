@@ -150,7 +150,7 @@ with col_journey:
 # Anomaly Detection
 # --------------------
 st.divider()
-st.subheader("🚨 Anomaly Detection")
+st.subheader("Anomaly Detection")
 
 try:
     with open("outputs/anomalies.json") as f:
@@ -175,3 +175,21 @@ except FileNotFoundError:
     st.info("Run anomaly_detection.py first to monitor for unusual behavior.", icon="ℹ️")
 except json.JSONDecodeError:
     st.error("Error reading anomalies.json. Ensure the file contains valid JSON.", icon="❌")
+
+
+# --------------------
+# Footer
+# --------------------
+st.write("") # Adds a bit of vertical space
+st.markdown("<hr style='border-top: 1px solid #e0e0e0; margin-top: 2rem; margin-bottom: 2rem;'>", unsafe_allow_html=True)
+
+footer_text = "© 2026 Store Intelligence System | Crafted with precision by Aastha Srivastava."
+
+st.markdown(
+    f"""
+    <div style="text-align: center; color: #888888; font-size: 14px; padding-bottom: 20px;">
+        {footer_text}
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
