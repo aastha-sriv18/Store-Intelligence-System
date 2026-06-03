@@ -38,7 +38,7 @@ billing_count = len(
 # -------------------------
 
 sales_df = pd.read_csv(
-    "data/store_sales.csv"
+    "data/sales.csv"
 )
 
 transactions = len(
