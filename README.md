@@ -651,105 +651,14 @@ positions.json
 
 ---
 
-## Run Analytics
+## Run Complete Analysis At Once 
 
 ```bash
-python -m pipeline.analytics
+python -m pipeline.run_all
 ```
 
 Generates:
-
-```text
-analytics.json
-```
-
----
-
-## Run Dwell Time Analysis
-
-```bash
-python -m pipeline.dwell_time
-```
-
-```bash
-python -m pipeline.dwell_analytics
-```
-
-Generates:
-
-```text
-dwell_times.json
-dwell_analytics.json
-```
-
----
-
-## Run Journey Analysis
-
-```bash
-python -m pipeline.journeys
-```
-
-Generates:
-
-```text
-journeys.json
-```
-
----
-
-## Generate Heatmap
-
-```bash
-python -m pipeline.heatmap
-```
-
-Generates:
-
-```text
-heatmap.png
-```
-
----
-
-## Sales Analytics
-
-```bash
-python -m pipeline.sales_analytics
-```
-Generates:
-
-```text
-outputs/sales_metrics.json
-```
-
----
-
-## Run Anomaly Detection
-
-```bash
-python -m pipeline.anomaly_detection
-```
-
-Creates:
-
-```text
-outputs/anomalies.json
-```
-
----
-
-## Run Funnel Conversion
-
-```bash
-python -m pipeline.funnel
-```
-
-Creates:
-
-```text
-outputs/funnel.json
-```
+Analytics, anomalies, dwell times, funnel conversion, heatmap, journeys and sales_metrics at once.
 
 ---
 
