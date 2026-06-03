@@ -118,33 +118,36 @@ with col_chart2:
 st.divider()
 
 # --------------------
-# Heatmap & Journeys Section
+# 3. Floor Plan & Journeys
 # --------------------
-col_heat, col_journey = st.columns([1.5, 1])
+bottom_col1, bottom_col2 = st.columns([1.5, 1]) 
 
-with col_heat:
+with bottom_col1:
     st.subheader("Store Heatmap")
     if os.path.exists("outputs/heatmap.png"):
         image = Image.open("outputs/heatmap.png")
-        # Use a container to add a border/shadow to the image via markdown if desired
         st.image(image, use_container_width=True, caption="Customer concentration and traffic flow.")
     else:
-        st.info("Heatmap not generated yet.")
+        st.info("Heatmap not generated yet. Run heatmap.py.")
 
-with col_journey:
+with bottom_col2:
     st.subheader("Sample Customer Journeys")
     try:
         with open("outputs/journeys.json") as f:
             journeys = json.load(f)
-            
-        # Display in a clean, scrollable expander or styled text
-        with st.container(height=400):
-            for visitor in list(journeys.keys())[:10]:
-                path = " ➔ ".join(journeys[visitor])
-                st.markdown(f"**Visitor {visitor}:**<br> {path}", unsafe_allow_html=True)
-                st.markdown("<hr style='margin: 0.5em 0px; border-top: 1px solid #f0f0f0;'>", unsafe_allow_html=True)
+        
+        
+        with st.container(height=520): 
+            for visitor in list(journeys.keys())[:15]: 
+                
+                st.markdown(f"**Visitor {visitor}:**")
+                
+                st.markdown(f"{' ➔ '.join(journeys[visitor])}")
+                
+                st.divider()
+                
     except FileNotFoundError:
-        st.warning("Run journeys.py first to see path data.")
+        st.warning("Run journeys.py first.")
 
 # --------------------
 # Anomaly Detection
