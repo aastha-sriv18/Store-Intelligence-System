@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 import json
+import subprocess
+import os
 
 app = FastAPI()
 
@@ -72,3 +74,20 @@ def metrics():
         "anomalies": anomalies
     }
   
+@app.get("/sales-metrics")
+def sales_metrics():
+
+    # optional: auto-recompute before serving
+    subprocess.run(["python", "pipeline/sales_analytics.py"])
+
+    if not os.path.exists("outputs/sales_metrics.json"):
+        return {"error": "sales_metrics.json not found"}
+
+    with open("outputs/sales_metrics.json") as f:
+        return json.load(f)
+    
+
+@app.post("/recompute-sales-metrics")
+def recompute_sales_metrics():
+    from pipeline.sales_analytics import compute_sales_metrics
+    return compute_sales_metrics()

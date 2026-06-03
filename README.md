@@ -160,6 +160,55 @@ Provides:
 
 ---
 
+## Sales Analytics
+
+This module computes key business KPIs from `data/sales.csv` and combines them with visitor analytics from `outputs/analytics.json`.
+
+### Inputs
+- `data/sales.csv` → transactional sales data (`order_id`, `GMV`)
+- `outputs/analytics.json` → visitor analytics (`unique_visitors`)
+
+### Computed Metrics
+- Total Orders: number of unique orders
+- Total Revenue: sum of GMV
+- Average Basket Value: Total Revenue / Total Orders
+- Conversion Rate: (Total Orders / Unique Visitors) × 100
+
+```bash
+python -m pipeline.sales_analytics
+```
+
+### Output
+Generated metrics are saved to:
+
+```text
+outputs/sales_metrics.json
+```
+
+### 🌐 API Endpoint
+
+**GET** `/sales-metrics`
+
+Returns the latest computed sales KPIs from `sales_metrics.json`.
+
+This endpoint automatically runs the sales analytics computation using the latest `data/sales.csv` and `outputs/analytics.json` before returning the response.
+
+---
+
+### 🔁 Recompute Endpoint (Optional)
+
+**POST** `/recompute-sales-metrics`
+
+Triggers recomputation of sales metrics from raw data.
+
+It regenerates `outputs/sales_metrics.json` using the latest available:
+- `data/sales.csv`
+- `outputs/analytics.json`
+
+Returns the updated KPI object after recomputation.
+
+---
+
 ## Anomaly Detection
 
 The system automatically identifies unusual customer behavior patterns from generated events.
@@ -317,6 +366,8 @@ events.json
     ├──────────► Dwell Time Engine
     │
     ├──────────► Journey Analysis
+    |
+    ├──────────► Sales Analysis
     │
     ├──────────► Heatmap Generator
     │
@@ -350,7 +401,8 @@ store-intelligence/
 │   ├── journeys.json
 │   ├── events.json
 │   ├── positions.json
-│   └── heatmap.png
+|   ├── heatmap.png
+│   └── sales_metrics.json
 │
 ├── pipeline/
 │   ├── analytics.py
@@ -656,6 +708,19 @@ Generates:
 
 ```text
 heatmap.png
+```
+
+---
+
+## Sales Analytics
+
+```bash
+python -m pipeline.sales_analytics
+```
+Generates:
+
+```text
+outputs/sales_metrics.json
 ```
 
 ---
